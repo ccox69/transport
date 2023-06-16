@@ -28,11 +28,10 @@ def steps(Matrix, U, mu, nu, tol=1e-10):
     n+=1
   return n
 
-def expected_transport_distance(types, verts):
-  M = graphs.matrix(0, 10)
+def expected_transport_distance(M, numtrials, fname):
   U = bin_array(M.shape[0])
-  with open("new_samples", "w") as data:
-    for number in range(10):
+  with open(fname, "w") as data:
+    for number in range(numtrials):
         mu = mu_nu.get_mu(M.shape[0])
         nu = mu_nu.get_mu(M.shape[0])
         data.write(str(steps(M, U, mu, nu)))
@@ -51,6 +50,10 @@ def expected_transport_distance(types, verts):
         data.write("\n")
 
 if __name__ == "__main__": 
-  expected_transport_distance(1, 5) 
+  numtrials = 10
+  fname = 'data/new_samples'
+  for i in range(4):
+    M = graphs.matrix(i, 4)
+    expected_transport_distance(M, numtrials, f'{fname}_{i}.txt') 
   
     
