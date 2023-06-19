@@ -4,6 +4,7 @@
 import numpy as np
 import graphs
 import mu_nu
+from collections import Counter
 
 
 def bin_array(vert):
@@ -35,18 +36,6 @@ def expected_transport_distance(M, numtrials, fname):
         mu = mu_nu.get_mu(M.shape[0])
         nu = mu_nu.get_mu(M.shape[0])
         data.write(str(steps(M, U, mu, nu)))
-        data.write("\n")
-        for j in range(M.shape[0]):
-            if j == M.shape[0] -1:
-                data.write(str(mu[j]) )
-            else:     
-                data.write(str(mu[j])+ "," )
-        data.write("\n")
-        for j in range(M.shape[0]):
-            if j == M.shape[0] -1:
-                data.write(str(nu[j]))
-            else:     
-                data.write(str(nu[j])+ "," )
         data.write("\n")
 
 if __name__ == "__main__": 

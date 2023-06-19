@@ -1,4 +1,4 @@
-###Gives three different types of graphs as dictionaries when given a number of vertiecs
+###Gives three different typefs of graphs as dictionaries when given a number of vertiecs
 ###Author: Caroline Cox, 06/09/2023
 import numpy as np
 
