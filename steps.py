@@ -7,6 +7,7 @@ import mu_nu
 from collections import Counter
 
 
+
 def bin_array(vert):
     #returns the power set of all vertices
     if vert==1:
@@ -31,18 +32,24 @@ def steps(Matrix, U, mu, nu, tol=1e-10):
 
 def expected_transport_distance(M, numtrials, fname):
   U = bin_array(M.shape[0])
+  counts = Counter()
   with open(fname, "w") as data:
     for number in range(numtrials):
         mu = mu_nu.get_mu(M.shape[0])
         nu = mu_nu.get_mu(M.shape[0])
-        data.write(str(steps(M, U, mu, nu)))
-        data.write("\n")
+        s = steps(M, U, mu, nu)
+        counts[s] += 1
+    for i in counts:
+        data.write(str(i) + ',')
+        data.write(str(counts[i]) + ' ')
+        data.write('\n')
+    
 
 if __name__ == "__main__": 
-  numtrials = 10
+  numtrials = 100
   fname = 'data/new_samples'
-  for i in range(4):
-    M = graphs.matrix(i, 4)
+  for i in range(3,21):
+    M = graphs.matrix(0, i)
     expected_transport_distance(M, numtrials, f'{fname}_{i}.txt') 
   
     

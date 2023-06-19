@@ -4,7 +4,6 @@
 import sys
 import graphs
 import steps
-from collections import Counter
 
 graph_type = int(sys.argv[1])
 graph_param = int(sys.argv[2])
@@ -16,8 +15,5 @@ fid = sys.argv[4]
 
 fname = f'data/graph_{graph_type}_{graph_param}_{fid}.txt'
 
-counts = Counter()
+steps.expected_transport_distance(M, num_trials, fname)
 
-s = steps.expected_transport_distance(M, num_trials, fname)
-
-counts[s] += 1
