@@ -1,15 +1,14 @@
 
-graph_types = [0, 1, 2, 3]
+graph_types = [0, 1, 2]
 
 graph_params = {
-    0: list(range(12,21)),
-    1: list(range(12,21)),
-    2: list(range(14,22,2)),
-    3: list(range(4,5))
+    0: list(range(17,21)),
+    1: list(range(17,21)),
+    2: list(range(16,22,2))
 }
 
-num_trials = 10000000
-batch_size = 100000
+num_trials = 1000000
+batch_size = 10000
 num_batches = num_trials//batch_size
 
 
@@ -24,7 +23,7 @@ for gtype in graph_types:
 #SBATCH --job-name={jname}
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=02:00:00
+#SBATCH --time=02:30:00
 
 module load anaconda3
 
