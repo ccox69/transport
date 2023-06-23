@@ -23,7 +23,7 @@ for gtype in graph_types:
 #SBATCH --job-name={jname}
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=02:30:00
+#SBATCH --time=03:00:00
 
 module load anaconda3
 
